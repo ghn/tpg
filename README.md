@@ -9,3 +9,7 @@ $ require 'tpg'
 $ tpg = Tpg.new("<my api key>")
 $ puts tpg.get_next_departures :stopCode => "VUIL"
 ```
+
+##Documentation
+
+http://www.tpg.ch/web/7289503/5
