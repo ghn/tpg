@@ -4,7 +4,7 @@ require 'json'
 
 class Tpg
   VERSION = "v1"
-  DOMAIN = "http://rtpi.data.tpg.ch"
+  DOMAIN = "https://prod.ivtr-od.tpg.ch"
 
   def initialize(api_key)
     @api_key = api_key
