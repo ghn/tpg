@@ -1,4 +1,4 @@
-##A PI KEY
+## API KEY
 Claim your API key here http://www.tpg.ch/fr/web/open-data/donnees
 
 ## Usage
