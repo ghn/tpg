@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   
   s.add_dependency('rest-client', '1.7.2')
-  s.add_dependency('json', '1.8.1')
+  s.add_dependency('json', '2.1.0')
 end

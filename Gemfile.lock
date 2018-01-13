@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    tpg (0.0.1)
+      json (= 2.1.0)
+      rest-client (= 1.7.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    json (2.1.0)
+    mime-types (2.99.3)
+    netrc (0.11.0)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  tpg!
+
+BUNDLED WITH
+   1.15.1
