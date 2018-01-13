@@ -3,8 +3,8 @@ require 'rest_client'
 require 'json'
 
 class Tpg
-  VERSION = "v1"
-  DOMAIN = "https://prod.ivtr-od.tpg.ch"
+  VERSION = 'v1'.freeze
+  DOMAIN = 'https://prod.ivtr-od.tpg.ch'.freeze
 
   def initialize(api_key)
     @api_key = api_key
@@ -13,73 +13,69 @@ class Tpg
   #
   # @param: stopCode, stopName, line, latitude, longitude
   #
-  def get_stops(params = {})
-    self.query("GetStops", params)["stops"]
+  def stops(params = {})
+    query('GetStops', params)['stops']
   end
 
   #
   # @param: stopCode, stopName
   #
-  def get_physical_stops(params = {})
-    self.query("GetPhysicalStops", params)["stops"]
+  def physical_stops(params = {})
+    query('GetPhysicalStops', params)['stops']
   end
 
   #
   # @param: stopCode, departureCode, linesCode, destinationCode
   #
-  def get_next_departures(params = {})
-    self.query("GetNextDepartures", params)
+  def next_departures(params = {})
+    query('GetNextDepartures', params)
   end
 
   #
   # @param: stopCode, lineCode, destinationCode
   #
-  def get_all_next_departures(params = {})
-    self.query("GetAllNextDepartures", params)
+  def all_next_departures(params = {})
+    query('GetAllNextDepartures', params)
   end
 
   #
   # @param: departureCode
   #
-  def get_thermometer(params = {})
-    self.query("GetThermometer", params)
+  def thermometer(params = {})
+    query('GetThermometer', params)
   end
 
   #
   # @param: departureCode
   #
-  def get_thermometer_physical_stops(params = {})
-    self.query("GetThermometerPhysicalStops", params)
+  def thermometer_physical_stops(params = {})
+    query('GetThermometerPhysicalStops', params)
   end
 
   #
   # @param: -
   #
-  def get_lines_colors
-    self.query("GetLinesColors")
+  def lines_colors
+    query('GetLinesColors')
   end
 
   #
   # @param: -
   #
-  def get_disruptions
-    self.query("GetDisruptions")
+  def disruptions
+    query('GetDisruptions')
   end
 
   protected
 
   def query(method, params = nil)
-    # looks like http://rtpi.data.tpg.ch/v1/GetDisruptions?key=xxxx
     url = "#{DOMAIN}/#{VERSION}/#{method}.json?key=#{@api_key}"
-
-    if params
-      url = "#{url}&#{self.create_query(params)}"
-    end
+    url = "#{url}&#{create_query(params)}" if params
 
     JSON.parse(RestClient.get(url))
   end
 
   def create_query(params)
-    params.map{|k,v| "#{k}=#{v}" }.join('&')
+    params.map { |k, v| "#{k}=#{v}" }.join('&')
   end
 end

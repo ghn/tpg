@@ -6,8 +6,8 @@ Claim your API key here http://www.tpg.ch/fr/web/open-data/donnees
 ```bash
 $ irb
 $ require 'tpg'
-$ tpg = Tpg.new("<my api key>")
-$ puts tpg.get_next_departures :stopCode => "VUIL"
+$ tpg = Tpg.new('<my api key>')
+$ puts tpg.next_departures stopCode: 'VUIL'
 ```
 
 ## Documentation
